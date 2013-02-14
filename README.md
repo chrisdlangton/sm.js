@@ -1,4 +1,4 @@
 smo.js
 ======
 
-Social Media JavaScript Framework for Single-page Apps
+Social Markup is a JavaScript Library for Single-page Apps
