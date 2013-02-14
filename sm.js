@@ -14,10 +14,10 @@ if (typeof Array.prototype.indexOf !== 'function') {
         return -1;
     };
 }
-function smo() {
+function sm() {
     // Private Properties
     this.about = {
-        Library: "smo.js",
+        Library: "sm.js",
         Version: 0.3,
         Author: "Christopher D. Langton",
         Website: "http:\/\/chrisdlangton.com",
@@ -30,7 +30,7 @@ function smo() {
     }
     return this;
 };
-smo.prototype = {
+sm.prototype = {
     init: function () {
         var found_ogtitle = found_slug = found_description = found_src = found_href = found_og = found_ogAppId = found_ogAdmins = found_tw = found_twSite = found_twCreator = found_ms = found_ogSite = found_ogUrl = found_ogImg = found_ogDesc = found_twDesc = found_twTitle = found_twUrl = found_twImg = found_msTt = found_msUrl = found_msWin = found_msImg = found_msTile = false;
         var elem_ogtitle, elem_slug, elem_description, elem_src, elem_href, elem_og, elem_ogAppId, elem_ogAdmins, elem_tw, elem_twSite, elem_twCreator, elem_ms, elem_ogSite, elem_ogUrl, elem_ogImg, elem_ogDesc, elem_twDesc, elem_twTitle, elem_twUrl, elem_twImg, elem_msTt, elem_msUrl, elem_msWin, elem_msImg, elem_msTile;
