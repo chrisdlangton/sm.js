@@ -1,3 +1,9 @@
+/** 
+ * @projectDescription  sm.js Social Markup is a small JavaSciprt Library for Single-page Apps
+ *
+ * @author  Christopher D. Langton chris@codewiz.biz
+ * @version     0.3
+ */
 if (typeof Array.prototype.indexOf !== 'function') {
     Array.prototype.indexOf = function (item) {
         for (var i = 0; i < this.length; i++) {
@@ -12,11 +18,11 @@ function smo() {
     // Private Properties
     this.about = {
         Library: "smo.js",
-        Version: "0.1",
+        Version: 0.3,
         Author: "Christopher D. Langton",
         Website: "http:\/\/chrisdlangton.com",
         Created: "2013-02-13",
-        Updated: "2013-02-13"
+        Updated: "2013-02-14"
     };
     // return a new page object if we're in the window scope
     if (window === this) {
