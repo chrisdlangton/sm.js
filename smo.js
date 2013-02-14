@@ -8,9 +8,9 @@ if (typeof Array.prototype.indexOf !== 'function') {
         return -1;
     };
 }
-function smo(action) {
+function smo() {
     // Private Properties
-    var about = {
+    this.about = {
         Library: "smo.js",
         Version: "0.1",
         Author: "Christopher D. Langton",
@@ -18,10 +18,6 @@ function smo(action) {
         Created: "2013-02-13",
         Updated: "2013-02-13"
     };
-    // View About
-    if ( action === 'about' ) {
-        return about;
-    }
     // return a new page object if we're in the window scope
     if (window === this) {
         return new smo();
@@ -67,6 +63,12 @@ smo.prototype = {
                 elem_msTile = elem_arr[i]; found_msTile = true;
             }
         }
+        var elem_arr = document.getElementsByTagName("link");
+        for (var i = 0; i < elem_arr.length; i++) {
+            if (elem_arr[i].getAttribute('rel') === 'canonical') {
+                elem_href = elem_arr[i]; found_href = true;
+            }
+        }
         //Build new meta if possible
         if (!found_msTt && found_slug) {
             elem=document.createElement('meta');
@@ -77,7 +79,7 @@ smo.prototype = {
         if (!found_msUrl && found_href) {
             elem=document.createElement('meta');
             elem.setAttribute('name','msapplication-starturl');
-            elem.content=elem_href.content;
+            elem.content=elem_href.href;
             document.getElementsByTagName('head')[0].appendChild( elem );                
         }
         if (!found_msWin) {
@@ -109,7 +111,7 @@ smo.prototype = {
         if (found_description) { window.meta.description = elem_description.content; }
         if (found_slug) { window.meta.slug = elem_slug.content; }
         if (found_src) { window.meta.src = elem_src.content; }
-        if (found_href) { window.meta.href = elem_href.content; }
+        if (found_href) { window.meta.href = elem_href.href; }
         return this;        
     },
     defaults: function () {
@@ -207,9 +209,6 @@ smo.prototype = {
                 if (elem_arr[i].getAttribute('name') === 'image_src') {
                     elem_src = elem_arr[i]; found_src = true;
                 }
-                if (elem_arr[i].getAttribute('name') === 'canonical') {
-                    elem_href = elem_arr[i]; found_href = true;
-                }
                 if (elem_arr[i].getAttribute('property') === 'og:type') {
                     elem_og = elem_arr[i]; found_og = true;
                 }
@@ -272,6 +271,12 @@ smo.prototype = {
                 }
                 if (elem_arr[i].getAttribute('name') === 'msapplication-TileColor') {
                     elem_msTile = elem_arr[i]; found_msTile = true;
+                }
+            }
+            var elem_arr = document.getElementsByTagName("link");
+            for (var i = 0; i < elem_arr.length; i++) {
+                if (elem_arr[i].getAttribute('rel') === 'canonical') {
+                    elem_href = elem_arr[i]; found_href = true;
                 }
             }
             //update <meta>
