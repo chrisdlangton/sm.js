@@ -4,16 +4,6 @@
  * @author  Christopher D. Langton chris@codewiz.biz
  * @version     0.5
  */
-if (typeof Array.prototype.indexOf !== 'function') {
-    Array.prototype.indexOf = function (item) {
-        for (var i = 0; i < this.length; i++) {
-            if (this[i] === item) {
-                return i;
-            }
-        }
-        return -1;
-    };
-}
 function sm() {
     // Private Properties
     this.about = {
