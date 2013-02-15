@@ -4,13 +4,13 @@
 Social Markup js
 ======
 
-sm.js, or Social Markup js: is a JavaScript Library for Single-page Apps
+Social Markup js, or sm.js: is a JavaScript Library for AJAX Pages or Single-page Apps.
 
 ### Authors and Contributors
 Christopher D. Langton @chrisdlangton
 
 # What is sm.js
-sm.js, or Social Markup js: is a small JavaScript Library originally built to extend [Pages.js][1] and works great for all Single-page applications.
+Social Markup js, or sm.js: is a small JavaScript Library originally built to extend [Pages.js][1] and works great for all AJAX Pages or Single-page applications.
 
 Its functionality allows your Single-page Apps to dynamically update Social Networking orientated &lt;meta&gt; tags so that when your 'pages' are shared the appropriate url, image, title, and description are captured for that specific 'page' in your Single-page App rather than what was served from the server with the landing page data which may not be relevant for the current page being shared.
 
