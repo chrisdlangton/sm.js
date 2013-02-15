@@ -24,9 +24,11 @@ In addition you can enable an optional Social sidebar.
 
 This Library will store some data from its initilisation scan in a global variable named 'meta' for use if you wish to restore defaults. This data is also referenced if some optional configurations are undefined.
 
-# How to use Pages.js
+# See it in action now!
 
-## Installation:
+Visit the [Pages.js][1] website to see it in action, check out the 'share' icon in the right side of the screen.
+
+# Installation:
 
 Download the latest sm.js file from [chrisdlangton.com][2] and upload it to  your public javascripts directory. 
 
@@ -38,14 +40,14 @@ Include the script in your html body after all the content (at the bottom of the
 
 Finally; in your &lt;body&gt; add the attribute 'onLoad' with the value 'sm().init();' which is a piece of JavaScript to initilise the sm.js Library when the &lt;body&gt; has finished rendering and your script is ready to be used.
 
-## Basic Usage:
+# Basic Usage:
 
 As long as basic setup is implemented correctly sm.js will automatically scan your &lt;head&gt; for existing &lt;meta&gt; sent from the server for usable data and if possible will create some Social Markup from it.
 
 It is also possible to enable a Socail Sidebar for sharing your page to the Social Networking sites; Facebook, Twitter, LinkedIn, and Google+.
 To do this you will need to create a configuration object to parse as a property when you initilize the sm.js Library.
 
-### The sm().init() Method:
+## The sm().init() Method:
 
 ```javascript
 var config = {
@@ -64,7 +66,7 @@ All 4 images are required if you want to enable the Social Sidebar, however if o
 
 There is an optional setting for the position of the sidebar, being the left or right of the screen. If left undefined 'left' will be set as the default.
 
-### The sm().defaults() Method:
+## The sm().defaults() Method:
 
 If you wish to restore default data anytime after you have used the sm().init() method just call the sm().defaults() method to access the global variable 'meta' that stores the data which the server sent.
 
@@ -72,7 +74,7 @@ If you wish to restore default data anytime after you have used the sm().init() 
 sm().defaults();
 ```
 
-### The sm().set() Method:
+## The sm().set() Method:
 
 This will be the method called for each 'page'loaded by the user in your AJAX or Single-page App.
 A mandatory configuration object must be sent.
