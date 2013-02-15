@@ -75,4 +75,50 @@ sm().defaults();
 #### The sm().set() Method:
 
 This will be the method called for each 'page'loaded by the user in your AJAX or Single-page App.
+A mandatory configuration object must be sent.
+There are two optional properties;
+* (bool) Use Social Sidebar.
+* (bool/string) Use default or defined CSS for the Social Sidebar.
+
+#### Configuration object
+
+```javascript
+var config = {
+        title: '',
+        slug: '',
+        description: '',
+        src: '',
+        href: '',
+        og: '',
+        ogAppId: '',
+        ogAdmins: '',
+        tw: '',
+        twSite: '',
+        hashtags: '',
+        twCreator: '',
+        ms: '',
+        msHex: ''
+    };
+sm().set( config );
+```
+
+In the above example we are showing all available object properties, the below explains each;
+
+* title(#) = Page Title
+* slug(#) = abstract or summary describing the page content, use 100 characters or less.
+* description(#) = more detailed description of the page content, use 500 characters or less.
+* src(#) = a url link to an image for this page.
+* href(#) = the canonical url to this page.
+* og(*) = Open Graph types, website, person, blog, article, ect. See Facebook Open Graph for available options.
+* ogAppId = Open Graph app_id
+* ogAdmins = Facebook profile for the pages admin
+* tw(*) = Twitter Card types, Summary, Audio, Player. See Twitter Developer for more details.
+* twSite = Profile name for the website (via @profilename)
+* hashtags = Comma seperated list of hash tags for this content.
+* twCreator = Profile name for the page content creator (@profilename)
+* ms(*) = widow size for Windows 8 or IE9+ WebApps, e.g. "width=1024;height=768".
+* msHex(*) = The HEX value for a color used by IE9+ and Windows 8  Tiles in WebApps.
+
+(*) = Required
+(#) = Defaults to data from the global variable.
 
