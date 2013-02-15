@@ -244,3 +244,9 @@ The final HTML typically looks like this;
 ```
 
 So you may style as you wish and use your own CSS.
+
+## Change Log
+
+#### Version: 0.5 Latest (Feb 15 2013)
+
+* First public release
