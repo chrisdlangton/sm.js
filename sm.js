@@ -212,16 +212,16 @@ sm.prototype = {
             }
             if (typeof imgs.imgLI !=='undefined') {
                 window.meta.imgLI = imgs.imgLI;
-            }
+            } else { console.log('sm.js warning: LinkedIn image undefined'); }
             if (typeof imgs.imgTW !=='undefined') {
                 window.meta.imgTW = imgs.imgTW;
-            }
+            } else { console.log('sm.js warning: Twitter image undefined'); }
             if (typeof imgs.imgFB !=='undefined') {
                 window.meta.imgFB = imgs.imgFB;
-            }
+            } else { console.log('sm.js warning: Facebook image undefined'); }
             if (typeof imgs.imgGP !=='undefined') {
                 window.meta.imgGP = imgs.imgGP;
-            }
+            } else { console.log('sm.js warning: Google Plus image undefined'); }
         }
         return this;
     },
