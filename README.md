@@ -36,7 +36,7 @@ Include the script in your html body after all the content (at the bottom of the
 <script src="javascripts/sm.js/sm.min.js" type="text/javascript" charset="utf-8"></script>
 ```
 
-Finally; in your &lt;body&gt; add the attribute 'onLoad' with the value 'sm().init();' which is a piece of JavaScript to initilise the sm.js Library when the <body> has finished rendering and your script is ready to be used.
+Finally; in your &lt;body&gt; add the attribute 'onLoad' with the value 'sm().init();' which is a piece of JavaScript to initilise the sm.js Library when the &lt;body&gt; has finished rendering and your script is ready to be used.
 
 ## Basic Usage:
 
@@ -122,3 +122,125 @@ In the above example we are showing all available object properties, the below e
 (*) = Required
 (#) = Defaults to data from the global variable.
 
+#### Social Sidbar
+
+Choosing to use the Social sidebar is easy, but if you do not wish to use it just do not include the second or third property in the sm().set() method.
+
+Enabling the Social Sidebar by using the boolean 'true' as the second property.
+
+```javascript
+var config = {
+        title: '',
+        slug: '',
+        description: '',
+        src: '',
+        href: '',
+        og: '',
+        ogAppId: '',
+        ogAdmins: '',
+        tw: '',
+        twSite: '',
+        hashtags: '',
+        twCreator: '',
+        ms: '',
+        msHex: ''
+    };
+sm().set( config, true, third!!! );
+```
+
+Note: the third property is conditional, so if the second property is defined as 'true' you must define the third property also.
+
+#### Social Bar CSS Styles
+
+If you have chosen to use the Social Sidebar you can either apply the default CSS or define your own.
+
+To use the default CSS simple parse 'true' boolean in the third property;
+
+```javascript
+var config = {
+        title: '',
+        slug: '',
+        description: '',
+        src: '',
+        href: '',
+        og: '',
+        ogAppId: '',
+        ogAdmins: '',
+        tw: '',
+        twSite: '',
+        hashtags: '',
+        twCreator: '',
+        ms: '',
+        msHex: ''
+    };
+sm().set( config, true, true );
+```
+
+If you wish to define your own CSS, store your CSS as a string into a variable and replace the boolean 'true' with your variable;
+
+```javascript
+var config = {
+        title: '',
+        slug: '',
+        description: '',
+        src: '',
+        href: '',
+        og: '',
+        ogAppId: '',
+        ogAdmins: '',
+        tw: '',
+        twSite: '',
+        hashtags: '',
+        twCreator: '',
+        ms: '',
+        msHex: ''
+    };
+var css = '#id { some: styles; } .class { more: styles; }';
+sm().set( config, true, css );
+```
+
+Available Styles are as follows;
+
+```css
+ul#social_links {
+}
+ul#social_links li {
+}
+a.social_link {
+}
+span#boxclose {
+}
+span#boxshow {
+}
+```
+
+The final HTML typically looks like this;
+
+```html
+<span id="boxshow" onclick="document.getElementById('social_links').style.display = 'inherit';this.style.display = 'none';">
+  Share
+</span>
+<ul id="social_links">
+  <span id="boxclose" onclick="this.parentNode.style.display = 'none';document.getElementById('boxshow').style.display = 'inherit';">
+    X
+  </span>
+  <li>
+    <a id="fb" class="social_link" href="http://www.facebook.com/share.php?u={canonical}">
+    </a>
+  </li>
+  <li>
+    <a id="tw" class="social_link" href="https://twitter.com/intent/tweet?screen_name={creator}&amp;text={title}&amp;via={site}&amp;hashtags={hashtags}">
+    </a>
+  </li>
+  <li>
+    <a id="li" class="social_link" href="http://www.linkedin.com/shareArticle?mini=true&amp;url={canonical}&amp;title={title}&amp;summary={summary}&amp;source={href}">
+    </a>
+  </li>
+  <li>
+    <a id="gp" class="social_link" href="https://plus.google.com/share?url={canonical}">
+    </a>
+  </li>
+</ul>
+```
+
+So you may style as you wish and use your own CSS.
