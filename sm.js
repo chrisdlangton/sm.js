@@ -198,10 +198,10 @@ sm.prototype = {
         /*
             var obj = {
             side: 'right',
-            imgLI: 'http://icons.mysitemyway.com/wp-content/gallery/matte-grey-square-icons-social-media-logos/119953-matte-grey-square-icon-social-media-logos-linkedin-logo.png',
-            imgTW: 'http://icons.mysitemyway.com/wp-content/gallery/matte-grey-square-icons-social-media-logos/120003-matte-grey-square-icon-social-media-logos-twitter.png',
-            imgFB: 'http://icons.mysitemyway.com/wp-content/gallery/matte-grey-square-icons-social-media-logos/119931-matte-grey-square-icon-social-media-logos-facebook-logo.png',
-            imgGP: 'http://icons.mysitemyway.com/wp-content/gallery/matte-grey-square-icons-social-media-logos/119945-matte-grey-square-icon-social-media-logos-google-logo-square.png'
+            imgLI: '',
+            imgTW: '',
+            imgFB: '',
+            imgGP: ''
             };
          */
             if (typeof imgs.side !=='undefined') {
@@ -282,17 +282,6 @@ sm.prototype = {
             ms: '',
             msHex: ''
         };
-            var obj = {
-            og: 'website',
-            ogAppId: 'chrisdlangton',
-            ogAdmins: 'chrisdlangton',
-            tw: 'summary',
-            twSite: 'chrisdlangton',
-            hashtags: 'Pagesjs',
-            twCreator: 'chrisdlangton',
-            ms: 'width=1024;height=768',
-            msHex: '#B10000'
-            };
         */
         //if any important obj missing use original values
         if (typeof window.meta === 'object' && typeof obj === 'object') {
