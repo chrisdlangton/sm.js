@@ -5,7 +5,6 @@
  * @version     0.5
  */
 function sm() {
-    // Private Properties
     this.about = {
         Library: "sm.js",
         Version: 0.5,
