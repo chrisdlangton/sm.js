@@ -12,13 +12,13 @@ Christopher D. Langton @chrisdlangton
 # What is sm.js
 sm.js, or Social Markup js: is a small JavaScript Library originally built to extend [Pages.js][1] and works great for all Single-page applications.
 
-Its functionality allows your Single-page Apps to dynamically update Social Networking orientated <meta> tags so that when your 'pages' are shared the appropriate url, image, title, and description are captured for that specific 'page' in your Single-page App rather than what was served from the server with the landing page data which may not be relevant for the current page being shared.
+Its functionality allows your Single-page Apps to dynamically update Social Networking orientated &lt;meta&gt; tags so that when your 'pages' are shared the appropriate url, image, title, and description are captured for that specific 'page' in your Single-page App rather than what was served from the server with the landing page data which may not be relevant for the current page being shared.
 
 # How does it work?
 
-Social Markup is a collection of <meta> tags in your webpage's <head>. The data stored in here is not viewed in the browser but it does effect how your page is seen by other sites such as Social Networking shares.
+Social Markup is a collection of &lt;meta&gt; tags in your webpage's &lt;head&gt;. The data stored in here is not viewed in the browser but it does effect how your page is seen by other sites such as Social Networking shares.
 
-What sm.js does is provide you a clean and simple JavaScript API to seamlessly updated these <meta> data specific for each 'page' your user navigates too in your AJAX Page or Single-page APP.
+What sm.js does is provide you a clean and simple JavaScript API to seamlessly updated these &lt;meta&gt; data specific for each 'page' your user navigates too in your AJAX Page or Single-page APP.
 
 In addition you can enable an optional Social sidebar.
 
@@ -36,11 +36,11 @@ Include the script in your html body after all the content (at the bottom of the
 <script src="javascripts/sm.js/sm.min.js" type="text/javascript" charset="utf-8"></script>
 ```
 
-Finally; in your <body> add the attribute 'onLoad' with the value 'sm().init();' which is a piece of JavaScript to initilise the sm.js Library when the <body> has finished rendering and your script is ready to be used.
+Finally; in your &lt;body&gt; add the attribute 'onLoad' with the value 'sm().init();' which is a piece of JavaScript to initilise the sm.js Library when the <body> has finished rendering and your script is ready to be used.
 
 ## Basic Usage:
 
-As long as basic setup is implemented correctly sm.js will automatically scan your <head> for existing <meta> sent from the server for usable data and if possible will create some Social Markup from it.
+As long as basic setup is implemented correctly sm.js will automatically scan your &lt;head&gt; for existing &lt;meta&gt; sent from the server for usable data and if possible will create some Social Markup from it.
 
 It is also possible to enable a Socail Sidebar for sharing your page to the Social Networking sites; Facebook, Twitter, LinkedIn, and Google+.
 To do this you will need to create a configuration object to parse as a property when you initilize the sm.js Library.
