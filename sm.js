@@ -2,7 +2,7 @@
  * @projectDescription  sm.js Social Markup is a small JavaSciprt Library for Single-page Apps
  *
  * @author  Christopher D. Langton chris@codewiz.biz
- * @version     0.4
+ * @version     0.5
  */
 if (typeof Array.prototype.indexOf !== 'function') {
     Array.prototype.indexOf = function (item) {
@@ -14,16 +14,15 @@ if (typeof Array.prototype.indexOf !== 'function') {
         return -1;
     };
 }
-
 function sm() {
     // Private Properties
     this.about = {
         Library: "sm.js",
-        Version: 0.4,
+        Version: 0.5,
         Author: "Christopher D. Langton",
         Website: "http:\/\/chrisdlangton.com",
         Created: "2013-02-13",
-        Updated: "2013-02-14"
+        Updated: "2013-02-15"
     };
     // return a new page object if we're in the window scope
     if (window === this) {
@@ -32,7 +31,7 @@ function sm() {
     return this;
 };
 sm.prototype = {
-    init: function () {
+    init: function (imgs) {
         var found_ogtitle = found_slug = found_description = found_src = found_href = found_og = found_ogAppId = found_ogAdmins = found_tw = found_twSite = found_twCreator = found_ms = found_ogSite = found_ogUrl = found_ogImg = found_ogDesc = found_twDesc = found_twTitle = found_twUrl = found_twImg = found_msTt = found_msUrl = found_msWin = found_msImg = found_msTile = found_author = found_summary = found_url = found_appName = found_tweetMeme = false;
         var elem_ogtitle, elem_slug, elem_description, elem_src, elem_href, elem_og, elem_ogAppId, elem_ogAdmins, elem_tw, elem_twSite, elem_twCreator, elem_ms, elem_ogSite, elem_ogUrl, elem_ogImg, elem_ogDesc, elem_twDesc, elem_twTitle, elem_twUrl, elem_twImg, elem_msTt, elem_msUrl, elem_msWin, elem_msImg, elem_msTile, elem_summary, elem_url, elem_appName, elem_tweetMeme;
         //Get all the <meta>
@@ -196,6 +195,34 @@ sm.prototype = {
         if (found_href) {
             window.meta.href = elem_href.href;
         }
+        if (typeof imgs !== 'undefined' && typeof imgs === 'object') {
+        /*
+            var obj = {
+            side: 'right',
+            imgLI: 'http://icons.mysitemyway.com/wp-content/gallery/matte-grey-square-icons-social-media-logos/119953-matte-grey-square-icon-social-media-logos-linkedin-logo.png',
+            imgTW: 'http://icons.mysitemyway.com/wp-content/gallery/matte-grey-square-icons-social-media-logos/120003-matte-grey-square-icon-social-media-logos-twitter.png',
+            imgFB: 'http://icons.mysitemyway.com/wp-content/gallery/matte-grey-square-icons-social-media-logos/119931-matte-grey-square-icon-social-media-logos-facebook-logo.png',
+            imgGP: 'http://icons.mysitemyway.com/wp-content/gallery/matte-grey-square-icons-social-media-logos/119945-matte-grey-square-icon-social-media-logos-google-logo-square.png'
+            };
+         */
+            if (typeof imgs.side !=='undefined') {
+                window.meta.side = imgs.side;
+            } else {
+                window.meta.side = 'left';
+            }
+            if (typeof imgs.imgLI !=='undefined') {
+                window.meta.imgLI = imgs.imgLI;
+            }
+            if (typeof imgs.imgTW !=='undefined') {
+                window.meta.imgTW = imgs.imgTW;
+            }
+            if (typeof imgs.imgFB !=='undefined') {
+                window.meta.imgFB = imgs.imgFB;
+            }
+            if (typeof imgs.imgGP !=='undefined') {
+                window.meta.imgGP = imgs.imgGP;
+            }
+        }
         return this;
     },
     defaults: function () {
@@ -239,7 +266,7 @@ sm.prototype = {
         }
         return this;
     },
-    set: function (obj, bar) {
+    set: function (obj, bar, css) {
         /* var obj = {
             title: '',
             slug: '',
@@ -253,12 +280,8 @@ sm.prototype = {
             twSite: '',
             hashtags: '',
             twCreator: '',
-            ms: 'width=1024;height=768',
-            msHex: '#B10000',
-            imgLI: 'http://icons.mysitemyway.com/wp-content/gallery/matte-grey-square-icons-social-media-logos/119953-matte-grey-square-icon-social-media-logos-linkedin-logo.png',
-            imgTW: 'http://icons.mysitemyway.com/wp-content/gallery/matte-grey-square-icons-social-media-logos/120003-matte-grey-square-icon-social-media-logos-twitter.png',
-            imgFB: 'http://icons.mysitemyway.com/wp-content/gallery/matte-grey-square-icons-social-media-logos/119931-matte-grey-square-icon-social-media-logos-facebook-logo.png',
-            imgGP: 'http://icons.mysitemyway.com/wp-content/gallery/matte-grey-square-icons-social-media-logos/119945-matte-grey-square-icon-social-media-logos-google-logo-square.png'
+            ms: '',
+            msHex: ''
         };
             var obj = {
             og: 'website',
@@ -269,12 +292,8 @@ sm.prototype = {
             hashtags: 'Pagesjs',
             twCreator: 'chrisdlangton',
             ms: 'width=1024;height=768',
-            msHex: '#B10000',
-            imgLI: 'http://icons.mysitemyway.com/wp-content/gallery/matte-grey-square-icons-social-media-logos/119953-matte-grey-square-icon-social-media-logos-linkedin-logo.png',
-            imgTW: 'http://icons.mysitemyway.com/wp-content/gallery/matte-grey-square-icons-social-media-logos/120003-matte-grey-square-icon-social-media-logos-twitter.png',
-            imgFB: 'http://icons.mysitemyway.com/wp-content/gallery/matte-grey-square-icons-social-media-logos/119931-matte-grey-square-icon-social-media-logos-facebook-logo.png',
-            imgGP: 'http://icons.mysitemyway.com/wp-content/gallery/matte-grey-square-icons-social-media-logos/119945-matte-grey-square-icon-social-media-logos-google-logo-square.png'
-        };
+            msHex: '#B10000'
+            };
         */
         //if any important obj missing use original values
         if (typeof window.meta === 'object' && typeof obj === 'object') {
@@ -645,70 +664,120 @@ sm.prototype = {
                 }
             }
             if (typeof bar !== 'undefined' && bar === true) {
-                //holds icons
-                elem = document.createElement('ul');
-                elem.id = 'social_links';
-                document.getElementsByTagName('body')[0].appendChild(elem);
-                //Facebook like http://developers.facebook.com/docs/reference/plugins/like/
-                elem = document.createElement('li');
-                anchor = document.createElement('a');
-                anchor.setAttribute('class', 'social_link');
-                anchor.setAttribute('style', "background: url('" + obj.imgFB + "') center center no-repeat;background-size: 80px 80px;");
-                if (typeof obj.ogAppId !== 'undefined') {
-                    anchor.href = 'http://www.facebook.com/plugins/like.php?href=' + obj.href + '&send=false&layout=box_count&width=450&show_faces=true&font&colorscheme=light&action=like&height=90&appId=' + obj.ogAppId;
-                } else {
-                    anchor.href = 'http://www.facebook.com/plugins/like.php?href=' + obj.href + '&send=false&layout=box_count&width=450&show_faces=true&font&colorscheme=light&action=like&height=90&appId=undefined';
-                }
-                elem.appendChild(anchor);
-                document.getElementById('social_links').appendChild(elem);
-                //tweet https://twitter.com/intent/tweet?screen_name=chrisdlangton&text=Title&via=codewiz_biz&hashtags=pagesjs
-                elem = document.createElement('li');
-                anchor = document.createElement('a');
-                anchor.setAttribute('class', 'social_link');
-                anchor.setAttribute('style', "background: url('" + obj.imgTW + "') center center no-repeat;  background-size: 80px 80px;");
-                if (typeof obj.twSite !== 'undefined' && typeof obj.twCreator !== 'undefined' && typeof obj.hashtags !== 'undefined') {
-                    anchor.href = 'https://twitter.com/intent/tweet?screen_name=' + obj.twCreator + '&text=' + obj.title + '&via=' + obj.twSite + '&hashtags=' + obj.hashtags;
-                } else {
-                    if (typeof obj.twSite !== 'undefined' && typeof obj.twCreator !== 'undefined') {
-                        anchor.href = 'https://twitter.com/intent/tweet?screen_name=' + obj.twCreator + '&text=' + obj.title + '&via=' + obj.twSite;
+                if (document.getElementById("social_links") === null) {
+                    //holds icons
+                    elem = document.createElement('span');
+                    elem.id = 'boxshow';
+                    elem.innerHTML = 'Share';
+                    elem.setAttribute('onClick', "document.getElementById('social_links').style.display = 'inherit';this.style.display = 'none';");
+                    document.getElementsByTagName('body')[0].appendChild(elem);
+                    elem = document.createElement('ul');
+                    elem.id = 'social_links';
+                    close = document.createElement('span');
+                    close.id = 'boxclose';
+                    close.innerHTML = 'X';
+                    close.setAttribute('onClick', "this.parentNode.style.display = 'none';document.getElementById('boxshow').style.display = 'inherit';");
+                    elem.appendChild(close);
+                    document.getElementsByTagName('body')[0].appendChild(elem);
+                    //Facebook share url only http://www.facebook.com/share.php?u={href}
+                    elem = document.createElement('li');
+                    anchor = document.createElement('a');
+                    anchor.id = 'fb';
+                    anchor.setAttribute('class', 'social_link');
+                    anchor.setAttribute('style', "background: url('" + window.meta.imgFB + "') center center no-repeat;background-size: 80px 80px;");
+                    anchor.href = 'http://www.facebook.com/share.php?u=' + obj.href;
+                    elem.appendChild(anchor);
+                    document.getElementById('social_links').appendChild(elem);
+                    //tweet https://twitter.com/intent/tweet?screen_name=chrisdlangton&text=Title&via=codewiz_biz&hashtags=pagesjs
+                    elem = document.createElement('li');
+                    anchor = document.createElement('a');
+                    anchor.id = 'tw';
+                    anchor.setAttribute('class', 'social_link');
+                    anchor.setAttribute('style', "background: url('" + window.meta.imgTW + "') center center no-repeat;  background-size: 80px 80px;");
+                    if (typeof obj.twSite !== 'undefined' && typeof obj.twCreator !== 'undefined' && typeof obj.hashtags !== 'undefined') {
+                        anchor.href = 'https://twitter.com/intent/tweet?screen_name=' + obj.twCreator + '&text=' + escape(obj.title) + '&via=' + obj.twSite + '&hashtags=' + obj.hashtags;
                     } else {
-                        if (typeof obj.twSite !== 'undefined' && typeof obj.hashtags !== 'undefined') {
-                            anchor.href = 'https://twitter.com/intent/tweet?text=' + obj.title + '&via=' + obj.twSite + '&hashtags=' + obj.hashtags;
+                        if (typeof obj.twSite !== 'undefined' && typeof obj.twCreator !== 'undefined') {
+                            anchor.href = 'https://twitter.com/intent/tweet?screen_name=' + obj.twCreator + '&text=' + escape(obj.title) + '&via=' + obj.twSite;
                         } else {
-                            if (typeof obj.twCreator !== 'undefined' && typeof obj.hashtags !== 'undefined') {
-                                anchor.href = 'https://twitter.com/intent/tweet?screen_name=' + obj.twCreator + '&text=' + obj.title + '&hashtags=' + obj.hashtags;
+                            if (typeof obj.twSite !== 'undefined' && typeof obj.hashtags !== 'undefined') {
+                                anchor.href = 'https://twitter.com/intent/tweet?text=' + escape(obj.title) + '&via=' + obj.twSite + '&hashtags=' + obj.hashtags;
                             } else {
-                                if (typeof obj.twSite !== 'undefined') {
-                                    anchor.href = 'https://twitter.com/intent/tweet?text=' + obj.title + '&via=' + obj.twSite;
+                                if (typeof obj.twCreator !== 'undefined' && typeof obj.hashtags !== 'undefined') {
+                                    anchor.href = 'https://twitter.com/intent/tweet?screen_name=' + obj.twCreator + '&text=' + escape(obj.title) + '&hashtags=' + obj.hashtags;
                                 } else {
-                                    if (typeof obj.twCreator !== 'undefined') {
-                                        anchor.href = 'https://twitter.com/intent/tweet?screen_name=' + obj.twCreator + '&text=' + obj.title;
+                                    if (typeof obj.twSite !== 'undefined') {
+                                        anchor.href = 'https://twitter.com/intent/tweet?text=' + escape(obj.title) + '&via=' + obj.twSite;
                                     } else {
-                                        anchor.href = 'https://twitter.com/intent/tweet?text=' + obj.title;
+                                        if (typeof obj.twCreator !== 'undefined') {
+                                            anchor.href = 'https://twitter.com/intent/tweet?screen_name=' + obj.twCreator + '&text=' + escape(obj.title);
+                                        } else {
+                                            anchor.href = 'https://twitter.com/intent/tweet?text=' + escape(obj.title);
+                                        }
                                     }
                                 }
                             }
                         }
                     }
+                    elem.appendChild(anchor);
+                    document.getElementById('social_links').appendChild(elem);
+                    //Linkedin share https://developer.linkedin.com/documents/share-linkedin
+                    elem = document.createElement('li');
+                    anchor = document.createElement('a');
+                    anchor.id = 'li';
+                    anchor.setAttribute('class', 'social_link');
+                    anchor.setAttribute('style', "background: url('" + window.meta.imgLI + "') center center no-repeat;  background-size: 80px 80px;");
+                    anchor.href = 'http://www.linkedin.com/shareArticle?mini=true&url=' + obj.href + '&title=' + escape(obj.title) + '&summary=' + obj.slug + '&source=' + window.location.hostname;
+                    elem.appendChild(anchor);
+                    document.getElementById('social_links').appendChild(elem);
+                    //Google +1 https://developers.google.com/+/plugins/share/#sharelink
+                    elem = document.createElement('li');
+                    anchor = document.createElement('a');
+                    anchor.id = 'gp';
+                    anchor.setAttribute('class', 'social_link');
+                    anchor.setAttribute('style', "background: url('" + window.meta.imgGP + "') center center no-repeat;  background-size: 80px 80px;");
+                    anchor.href = 'https://plus.google.com/share?url=' + obj.href;
+                    elem.appendChild(anchor);
+                    document.getElementById('social_links').appendChild(elem);
+                } else {
+                    document.getElementById('fb').href = 'http://www.facebook.com/share.php?u=' + obj.href;
+                    if (typeof obj.twSite !== 'undefined' && typeof obj.twCreator !== 'undefined' && typeof obj.hashtags !== 'undefined') {
+                        document.getElementById('tw').href = 'https://twitter.com/intent/tweet?screen_name=' + obj.twCreator + '&text=' + escape(obj.title) + '&via=' + obj.twSite + '&hashtags=' + obj.hashtags;
+                    } else {
+                        if (typeof obj.twSite !== 'undefined' && typeof obj.twCreator !== 'undefined') {
+                            document.getElementById('tw').href = 'https://twitter.com/intent/tweet?screen_name=' + obj.twCreator + '&text=' + escape(obj.title) + '&via=' + obj.twSite;
+                        } else {
+                            if (typeof obj.twSite !== 'undefined' && typeof obj.hashtags !== 'undefined') {
+                                document.getElementById('tw').href = 'https://twitter.com/intent/tweet?text=' + escape(obj.title) + '&via=' + obj.twSite + '&hashtags=' + obj.hashtags;
+                            } else {
+                                if (typeof obj.twCreator !== 'undefined' && typeof obj.hashtags !== 'undefined') {
+                                    document.getElementById('tw').href = 'https://twitter.com/intent/tweet?screen_name=' + obj.twCreator + '&text=' + escape(obj.title) + '&hashtags=' + obj.hashtags;
+                                } else {
+                                    if (typeof obj.twSite !== 'undefined') {
+                                        document.getElementById('tw').href = 'https://twitter.com/intent/tweet?text=' + escape(obj.title) + '&via=' + obj.twSite;
+                                    } else {
+                                        if (typeof obj.twCreator !== 'undefined') {
+                                            document.getElementById('tw').href = 'https://twitter.com/intent/tweet?screen_name=' + obj.twCreator + '&text=' + escape(obj.title);
+                                        } else {
+                                            document.getElementById('tw').href = 'https://twitter.com/intent/tweet?text=' + escape(obj.title);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    document.getElementById('li').href = 'http://www.linkedin.com/shareArticle?mini=true&url=' + obj.href + '&title=' + escape(obj.title) + '&summary=' + obj.slug + '&source=' + window.location.hostname;
+                    document.getElementById('gp').href = 'https://plus.google.com/share?url=' + obj.href;
                 }
-                elem.appendChild(anchor);
-                document.getElementById('social_links').appendChild(elem);
-                //Linkedin share https://developer.linkedin.com/documents/share-linkedin
-                elem = document.createElement('li');
-                anchor = document.createElement('a');
-                anchor.setAttribute('class', 'social_link');
-                anchor.setAttribute('style', "background: url('" + obj.imgLI + "') center center no-repeat;  background-size: 80px 80px;");
-                anchor.href = 'http://www.linkedin.com/shareArticle?mini=true&url=' + obj.href + '&title=' + obj.title + '&summary=' + obj.slug + '&source=' + window.location.hostname;
-                elem.appendChild(anchor);
-                document.getElementById('social_links').appendChild(elem);
-                //Google +1 https://developers.google.com/+/plugins/share/#sharelink
-                elem = document.createElement('li');
-                anchor = document.createElement('a');
-                anchor.setAttribute('class', 'social_link');
-                anchor.setAttribute('style', "background: url('" + obj.imgGP + "') center center no-repeat;  background-size: 80px 80px;");
-                anchor.href = 'https://plus.google.com/share?url=' + obj.href;
-                elem.appendChild(anchor);
-                document.getElementById('social_links').appendChild(elem);
+            }
+            if (typeof css !== 'undefined') {
+                if (css === true) {
+                    css = 'ul#social_links { display: none; float: ' + window.meta.side + '; position: fixed; top: 15%; ' + window.meta.side + ': 0; padding-left: 0; padding-right: 0; margin-' + window.meta.side + ': 35px; padding-top: 5px; padding-bottom: 5px; list-style: none; -webkit-border-radius: 15px; border-radius: 15px; -moz-border-radius: 15px; background-color: transparent; background-color: rgba(200, 200, 200, 0.8); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#99dddddd,endColorstr=#99dddddd); -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99dddddd,endColorstr=#99dddddd)"; } a.social_link { float: ' + window.meta.side + '; width: 80px; height: 80px; } a.social_link:hover { margin-top: -10px; margin-bottom: 10px; } #boxclose{ float:' + window.meta.side + '; width:26px; height:26px; position: absolute; bottom: -8px; ' + window.meta.side + ': -8px; width:20px; height 10px; cursor:pointer; padding-left: 10px; padding-top: 4px; border-radius: 40px; color: white; color: white; background-color: transparent; background-color: rgba(200, 200, 200, 0.8); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#99dddddd,endColorstr=#99dddddd); -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99dddddd,endColorstr=#99dddddd)"; } #boxshow{ float: ' + window.meta.side + '; position: fixed; ' + window.meta.side + ': 0; top: 25%; padding: 5px 10px 5px 10px; -webkit-border-radius: 15px; border-radius: 15px; -moz-border-radius: 15px; background-color: transparent; background-color: rgba(200, 200, 200, 0.8); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#99dddddd,endColorstr=#99dddddd); -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99dddddd,endColorstr=#99dddddd)"; color: white; -moz-transform:rotate(90deg); transform:rotate(90deg); -webkit-transform:rotate(90deg); -ms-transform:rotate(90deg); -o-transform: rotate(90deg); filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1); z-index:inherit; zoom:1; cursor: pointer; }';
+                }
+                elem = document.createElement('style');
+                elem.setAttribute('type', 'text/css');
+                elem.innerHTML = css;
+                document.getElementsByTagName('head')[0].appendChild(elem);
             }
         }
         return this;
