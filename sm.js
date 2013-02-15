@@ -5,6 +5,16 @@
  * @version     0.5
  */
 function sm() {
+	/* window.meta.title
+	window.meta.description
+	window.meta.slug
+	window.meta.src
+	window.meta.href
+	window.meta.side
+	window.meta.imgLI
+	window.meta.imgTW
+	window.meta.imgFB
+	window.meta.imgGP */
     this.about = {
         Library: "sm.js",
         Version: 0.5,
