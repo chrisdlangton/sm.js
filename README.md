@@ -1,10 +1,10 @@
 [1]: http://pagesjs.chrisdlangton.com/
 [2]: http://chrisdlangton.com/
 
-sm.js
+Social Markup js
 ======
 
-Social Markup is a JavaScript Library for Single-page Apps
+sm.js, or Social Markup js: is a JavaScript Library for Single-page Apps
 
 ### Authors and Contributors
 Christopher D. Langton @chrisdlangton
