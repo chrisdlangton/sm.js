@@ -100,13 +100,13 @@ sm.prototype = {
         if (!found_appName) {
             elem = document.createElement('meta');
             elem.setAttribute('name', 'application-name');
-            elem.content = document.title;
+            elem.content = document.getElementsByTagName('title')[0].innerHTML;
             document.getElementsByTagName('head')[0].appendChild(elem);
         }
         if (!found_tweetMeme) {
             elem = document.createElement('meta');
             elem.setAttribute('name', 'tweetmeme-title');
-            elem.content = document.title;
+            elem.content = document.getElementsByTagName('title')[0].innerHTML;
             document.getElementsByTagName('head')[0].appendChild(elem);
         }
         if (!found_slug && found_summary) {
@@ -171,7 +171,7 @@ sm.prototype = {
         }
         //Globals for method defaults
         window.meta = {
-            title: document.title.replace('<', '&lt;').replace('>', '&gt;').replace(' & ', ' &amp; ')
+            title: document.getElementsByTagName('title')[0].innerHTML.replace('<', '&lt;').replace('>', '&gt;').replace(' & ', ' &amp; ')
         };
         if (found_description) {
             window.meta.description = elem_description.content;
@@ -218,7 +218,7 @@ sm.prototype = {
     defaults: function () {
         if (typeof window.meta === 'object') {
             if (typeof window.meta.title !== 'undefined') {
-                document.title = window.meta.title;
+                document.getElementsByTagName('title')[0].innerHTML = window.meta.title;
             }
             var elem_arr = document.getElementsByTagName("meta");
             for (var i = 0; i < elem_arr.length; i++) {
@@ -306,7 +306,7 @@ sm.prototype = {
         if (typeof obj === 'object') {
             //update page title
             if (typeof obj.title !== 'undefined') {
-                document.title = obj.title;
+                document.getElementsByTagName('title')[0].innerHTML = obj.title;
             }
             var found_ogtitle = found_slug = found_description = found_src = found_href = found_og = found_ogAppId = found_ogAdmins = found_tw = found_twSite = found_twCreator = found_ms = found_ogSite = found_ogUrl = found_ogImg = found_ogDesc = found_twDesc = found_twTitle = found_twUrl = found_twImg = found_msTt = found_msUrl = found_msWin = found_msImg = found_msTile = found_author = found_summary = false;
             var elem_ogtitle, elem_slug, elem_description, elem_src, elem_href, elem_og, elem_ogAppId, elem_ogAdmins, elem_tw, elem_twSite, elem_twCreator, elem_ms, elem_ogSite, elem_ogUrl, elem_ogImg, elem_ogDesc, elem_twDesc, elem_twTitle, elem_twUrl, elem_twImg, elem_msTt, elem_msUrl, elem_msWin, elem_msImg, elem_msTile, elem_author, elem_summary;
