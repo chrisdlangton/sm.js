@@ -2,17 +2,17 @@
  * @projectDescription  sm.js Social Markup is a small JavaSciprt Library for Single-page Apps
  *
  * @author  Christopher D. Langton chris@codewiz.biz
- * @version     0.5.1
+ * @version     0.5.2
  */
 function sm() {
     // Private Properties
     this.about = {
         Library: "sm.js",
-        Version: "0.5.1",
+        Version: "0.5.2",
         Author: "Christopher D. Langton",
         Website: "http:\/\/chrisdlangton.com",
         Created: "2013-02-13",
-        Updated: "2013-02-18"
+        Updated: "2013-02-19"
     };
     // return a new page object if we're in the window scope
     if (window === this) {
@@ -735,7 +735,7 @@ sm.prototype = {
                         document.getElementById('tw').href = 'https://twitter.com/intent/tweet?screen_name=' + obj.twCreator + '&text=' + escape(obj.title) + '&via=' + obj.twSite + '&hashtags=' + obj.hashtags;
                     } else {
                         if (typeof obj.twSite !== 'undefined' && typeof obj.twCreator !== 'undefined') {
-                            document.getElementById('tw').href = 'https://twitter.com/intent/tweet?screen_name=' + obj.twCreator + '&text=' + escape(obj.title) + '&via=' + obj.twSite;
+                            document.getElementById('tw').href = 'https://twitter.com/intent/tweet?screen_name=' + obj.twCreator + '&text=' + escape(obj.title + ' ' + obj.href) + '&via=' + obj.twSite;
                         } else {
                             if (typeof obj.twSite !== 'undefined' && typeof obj.hashtags !== 'undefined') {
                                 document.getElementById('tw').href = 'https://twitter.com/intent/tweet?text=' + escape(obj.title) + '&via=' + obj.twSite + '&hashtags=' + obj.hashtags;
