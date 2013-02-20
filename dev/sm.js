@@ -22,6 +22,8 @@ function sm() {
 };
 sm.prototype = {
     init: function (imgs) {
+        // prevent init being used multiple times
+        if (typeof window.meta !== 'undefined') { return; }
         var found_ogtitle = found_slug = found_description = found_src = found_href = found_og = found_ogAppId = found_ogAdmins = found_tw = found_twSite = found_twCreator = found_ms = found_ogSite = found_ogUrl = found_ogImg = found_ogDesc = found_twDesc = found_twTitle = found_twUrl = found_twImg = found_msTt = found_msUrl = found_msWin = found_msImg = found_msTile = found_author = found_summary = found_url = found_appName = found_tweetMeme = false;
         var elem_ogtitle, elem_slug, elem_description, elem_src, elem_href, elem_og, elem_ogAppId, elem_ogAdmins, elem_tw, elem_twSite, elem_twCreator, elem_ms, elem_ogSite, elem_ogUrl, elem_ogImg, elem_ogDesc, elem_twDesc, elem_twTitle, elem_twUrl, elem_twImg, elem_msTt, elem_msUrl, elem_msWin, elem_msImg, elem_msTile, elem_summary, elem_url, elem_appName, elem_tweetMeme;
         //Get all the <meta>
@@ -251,6 +253,7 @@ sm.prototype = {
                     }
                 }
             }
+            delete window.meta;
         } else {
             console.log('sm.js: not initilized properly');
         }
