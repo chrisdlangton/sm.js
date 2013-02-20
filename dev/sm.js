@@ -288,6 +288,10 @@ sm.prototype = {
             msHex: '#B10000'
             };
         */
+        if (typeof window.meta !== 'object') {
+            console.log('sm.js: not initilized properly');
+            return;
+        }
         //if any important obj missing use original values
         if (typeof window.meta === 'object' && typeof obj === 'object') {
             if (typeof window.meta.title !== 'undefined' && typeof obj.title === 'undefined') {
@@ -772,6 +776,10 @@ sm.prototype = {
                 elem.innerHTML = css;
                 document.getElementsByTagName('head')[0].appendChild(elem);
             }
+        } else {
+            // no object to set
+            console.log('sm.js: no config property to set');
+            return;
         }
         return this;
     }
