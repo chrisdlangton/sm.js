@@ -4,7 +4,7 @@
 Social Markup js
 ======
 
-[![Flattr this git repo](http://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/submit/auto?user_id=chrisdlangton&url=https://github.com/chrisdlangton/&title=sm.js&language=&tags=github&category=software)
+[![Flattr this git repo](http://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/submit/auto?user_id=chrisdlangton&url=https://github.com/chrisdlangton/sm.js&title=sm.js&language=&tags=github&category=software)
 
 Social Markup js, or sm.js: is a JavaScript Library for AJAX Pages or Single-page Apps.
 
